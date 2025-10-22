@@ -115,7 +115,7 @@ st.markdown(
         <img src='data:image/png;base64,{}' width='40' style='border-radius: 10px;'/>
         <h1 style='color: white; margin: 0; font-size: 2.4rem;'>ScoreScope</h1>
     </div>
-    """.format(base64.b64encode(open("gslogo.png", "rb").read()).decode()),
+    """.format(base64.b64encode(open("sslogo.png", "rb").read()).decode()),
     unsafe_allow_html=True
 )
 
