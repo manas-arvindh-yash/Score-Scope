@@ -9,18 +9,42 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
-    /* ===== INPUT FIELDS & DROPDOWNS (Solid Black) ===== */
-    div[data-baseweb="select"] > div,
-    div[data-baseweb="input"] > div {
-        background-color: #000000 !important; /* Solid black */
-        color: #FFFFFF !important; /* White text */
-        border: 1.5px solid #444 !important; /* Subtle dark grey border */
-        border-radius: 8px !important;
-        font-weight: 500;
-        font-size: 15px;
+    /* ===== GLOBAL FONT & BACKGROUND ===== */
+    * {
+        font-family: 'Poppins', sans-serif !important;
     }
 
-    /* ===== LABEL TEXT ===== */
+    /* ===== INPUT FIELDS & DROPDOWNS ===== */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="input"] > div {
+        background-color: #000000 !important;  /* solid black box */
+        color: #FFFFFF !important;              /* white text */
+        border: 1.5px solid #555 !important;    /* dark grey outline */
+        border-radius: 8px !important;
+        font-weight: 500 !important;
+        font-size: 15px !important;
+    }
+
+    /* ===== DROPDOWN MENU OPTIONS ===== */
+    ul[role="listbox"] {
+        background-color: #000000 !important;  /* solid black dropdown menu */
+        color: #FFFFFF !important;
+        border: 1px solid #666 !important;
+        border-radius: 8px !important;
+    }
+
+    li[role="option"] {
+        background-color: #000000 !important;
+        color: #FFFFFF !important;
+        font-weight: 500 !important;
+        padding: 6px 10px !important;
+    }
+
+    li[role="option"]:hover {
+        background-color: #1a1a1a !important;  /* subtle grey hover effect */
+    }
+
+    /* ===== LABELS ===== */
     label, .stTextInput label, .stSelectbox label {
         color: #ffffff !important;
         font-weight: 600 !important;
@@ -28,37 +52,38 @@ st.markdown("""
 
     /* ===== BUTTON ===== */
     div.stButton > button {
-        background: linear-gradient(135deg, #2196F3, #1565C0);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 10px 25px;
-        font-size: 16px;
-        font-weight: 600;
+        background-color: #000000 !important;
+        color: #FFFFFF !important;
+        border: 1.5px solid #444 !important;
+        border-radius: 12px !important;
+        padding: 10px 25px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
         transition: all 0.3s ease;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
     }
 
     div.stButton > button:hover {
-        background: linear-gradient(135deg, #42A5F5, #1976D2);
-        transform: scale(1.03);
-        box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+        background-color: #1a1a1a !important;
+        transform: scale(1.04);
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.5);
     }
 
     /* ===== SLIDERS ===== */
     .stSlider label {
         color: #ffffff !important;
-        font-weight: 600;
+        font-weight: 600 !important;
     }
 
     /* ===== CONTAINER PANEL ===== */
     section.main > div {
         background: rgba(0,0,0,0.55);
         border-radius: 15px;
-        padding: 20px;
+        padding: 25px;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # ------------------------
