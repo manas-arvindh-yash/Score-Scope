@@ -9,25 +9,34 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
-    /* ===== GLOBAL FONT & BACKGROUND ===== */
+    /* ===== GLOBAL FONT ===== */
     * {
         font-family: 'Poppins', sans-serif !important;
     }
 
-    /* ===== INPUT FIELDS & DROPDOWNS ===== */
-    div[data-baseweb="select"] > div,
-    div[data-baseweb="input"] > div {
-        background-color: #000000 !important;  /* solid black box */
+    /* ===== INPUTS, NUMBER BOXES & DROPDOWNS ===== */
+    div[data-baseweb="input"] input,
+    div[data-baseweb="select"] div,
+    input[type="number"], input[type="text"] {
+        background-color: #000000 !important;   /* solid black box */
         color: #FFFFFF !important;              /* white text */
-        border: 1.5px solid #555 !important;    /* dark grey outline */
+        border: 1.5px solid #555 !important;    /* dark grey border */
         border-radius: 8px !important;
-        font-weight: 500 !important;
         font-size: 15px !important;
+        font-weight: 500 !important;
+        padding: 6px 10px !important;
+    }
+
+    /* Force white text for input contents */
+    input, textarea, select {
+        color: #FFFFFF !important;
+        background-color: #000000 !important;
+        border: 1px solid #555 !important;
     }
 
     /* ===== DROPDOWN MENU OPTIONS ===== */
     ul[role="listbox"] {
-        background-color: #000000 !important;  /* solid black dropdown menu */
+        background-color: #000000 !important;   /* solid black dropdown menu */
         color: #FFFFFF !important;
         border: 1px solid #666 !important;
         border-radius: 8px !important;
@@ -41,7 +50,7 @@ st.markdown("""
     }
 
     li[role="option"]:hover {
-        background-color: #1a1a1a !important;  /* subtle grey hover effect */
+        background-color: #1a1a1a !important;  /* subtle hover */
     }
 
     /* ===== LABELS ===== */
@@ -69,20 +78,26 @@ st.markdown("""
         box-shadow: 0px 6px 12px rgba(0,0,0,0.5);
     }
 
-    /* ===== SLIDERS ===== */
+    /* ===== SLIDER LABELS ===== */
     .stSlider label {
         color: #ffffff !important;
         font-weight: 600 !important;
     }
 
-    /* ===== CONTAINER PANEL ===== */
+    /* ===== CONTAINER ===== */
     section.main > div {
         background: rgba(0,0,0,0.55);
         border-radius: 15px;
         padding: 25px;
     }
+
+    /* ===== DROPDOWN ARROW COLOR (WHITE) ===== */
+    div[data-baseweb="select"] svg {
+        fill: #FFFFFF !important;
+    }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
