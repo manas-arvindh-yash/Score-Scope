@@ -9,12 +9,12 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
-    /* ===== INPUT FIELDS & DROPDOWNS ===== */
+    /* ===== INPUT FIELDS & DROPDOWNS (Solid Black) ===== */
     div[data-baseweb="select"] > div,
     div[data-baseweb="input"] > div {
-        background-color: rgba(255, 255, 255, 0.9) !important;
-        color: #000000 !important;
-        border: 1.5px solid #ccc !important;
+        background-color: #000000 !important; /* Solid black */
+        color: #FFFFFF !important; /* White text */
+        border: 1.5px solid #444 !important; /* Subtle dark grey border */
         border-radius: 8px !important;
         font-weight: 500;
         font-size: 15px;
