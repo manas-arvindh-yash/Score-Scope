@@ -7,6 +7,34 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 
 st.set_page_config(page_title="ScoreScope", layout="wide")
+st.markdown("""
+    <style>
+    /* Dropdown and input field styles */
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 10px;
+    }
+    div[data-baseweb="input"] > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 10px;
+    }
+    /* Predict button styling */
+    div.stButton > button {
+        background-color: #1e88e5;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+    }
+    div.stButton > button:hover {
+        background-color: #1565c0;
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # ------------------------
 # Background styling (no blur)
