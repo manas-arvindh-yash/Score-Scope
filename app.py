@@ -9,32 +9,57 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
-    /* Dropdown and input field styles */
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border-radius: 10px;
-    }
+    /* ===== INPUT FIELDS & DROPDOWNS ===== */
+    div[data-baseweb="select"] > div,
     div[data-baseweb="input"] > div {
-        background-color: #ffffff !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
         color: #000000 !important;
-        border-radius: 10px;
+        border: 1.5px solid #ccc !important;
+        border-radius: 8px !important;
+        font-weight: 500;
+        font-size: 15px;
     }
-    /* Predict button styling */
+
+    /* ===== LABEL TEXT ===== */
+    label, .stTextInput label, .stSelectbox label {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+
+    /* ===== BUTTON ===== */
     div.stButton > button {
-        background-color: #1e88e5;
+        background: linear-gradient(135deg, #2196F3, #1565C0);
         color: white;
-        font-weight: bold;
-        border-radius: 10px;
         border: none;
-        padding: 10px 20px;
+        border-radius: 12px;
+        padding: 10px 25px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
     }
+
     div.stButton > button:hover {
-        background-color: #1565c0;
-        color: white;
+        background: linear-gradient(135deg, #42A5F5, #1976D2);
+        transform: scale(1.03);
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+    }
+
+    /* ===== SLIDERS ===== */
+    .stSlider label {
+        color: #ffffff !important;
+        font-weight: 600;
+    }
+
+    /* ===== CONTAINER PANEL ===== */
+    section.main > div {
+        background: rgba(0,0,0,0.55);
+        border-radius: 15px;
+        padding: 20px;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # ------------------------
 # Background styling (no blur)
