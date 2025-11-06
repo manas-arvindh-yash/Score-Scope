@@ -1,4 +1,4 @@
-# app.py - Clean final version (single submit block, no NameError)
+
 import streamlit as st
 import pandas as pd
 import base64
@@ -84,12 +84,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-
-
-# ------------------------
-# Background styling (no blur)
-# ------------------------
 def set_background(image_path):
     with open(image_path, "rb") as f:
         data = f.read()
@@ -135,13 +129,8 @@ def set_background(image_path):
         """,
         unsafe_allow_html=True
     )
-
-# call background (ensure bckgrnd.png exists)
 set_background("bckgrnd.png")
 
-# ------------------------
-# Load dataset
-# ------------------------
 @st.cache_data
 def load_data():
     return pd.read_csv("cstperformance01.csv")
@@ -162,10 +151,6 @@ if not all(col in df.columns for col in required_columns):
     st.stop()
 
 df = df[required_columns]
-
-# ------------------------
-# Encode categorical columns
-# ------------------------
 cat_cols = [
     'Gender','Department','Extracurricular_Activities',
     'Internet_Access_at_Home','Parent_Education_Level','Family_Income_Level'
@@ -175,19 +160,12 @@ for c in cat_cols:
     le = LabelEncoder()
     df[c] = le.fit_transform(df[c])
     encoders[c] = le
-
-# ------------------------
-# Train model (simple linear)
-# ------------------------
+    
 X = df.drop(columns=['Total_Score'])
 y = df['Total_Score']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = LinearRegression()
 model.fit(X_train, y_train)
-
-# ------------------------
-# Title and layout (center logo + title)
-# ------------------------
 st.markdown(
     """
     <div style='display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 5px;'>
@@ -197,9 +175,6 @@ st.markdown(
     """.format(base64.b64encode(open("sslogo.png", "rb").read()).decode()),
     unsafe_allow_html=True
 )
-
-# Input form (ALL controls inside the form)
-# ------------------------
 with st.form("prediction_form"):
     c1, c2, c3 = st.columns(3)
 
@@ -225,16 +200,11 @@ with st.form("prediction_form"):
         parent_edu = st.selectbox("Parent Education Level", encoders['Parent_Education_Level'].classes_)
         income = st.selectbox("Family Income Level", encoders['Family_Income_Level'].classes_)
 
-    # button and placeholder (INSIDE the form)
     col_btn, col_text = st.columns([1, 4])
     with col_btn:
         submitted = st.form_submit_button("Predict")
     with col_text:
         result_placeholder = st.empty()
-
-## ------------------------
-# Single prediction block (after form). input_data created here.
-# ------------------------
 if submitted:
     input_data = {
         'Gender': encoders['Gender'].transform([gender])[0],
@@ -254,12 +224,9 @@ if submitted:
         'Stress_Level (1-10)': stress,
         'Sleep_Hours_per_Night': sleep
     }
-
-    # create input dataframe and predict
     input_df = pd.DataFrame([input_data])
     pred = model.predict(input_df)[0]
 
-    # display result next to button via placeholder
     result_placeholder.markdown(
         f"<p class='prediction-text'>YOUR PREDICTED SCORE IS: {pred:.2f}</p>",
         unsafe_allow_html=True
