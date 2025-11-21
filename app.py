@@ -129,7 +129,7 @@ def set_background(image_path):
         """,
         unsafe_allow_html=True
     )
-set_background("Background.png")
+set_background("backgroundnew.png")
 
 @st.cache_data
 def load_data():
