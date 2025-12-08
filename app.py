@@ -249,4 +249,4 @@ result_placeholder.markdown(
     unsafe_allow_html=True
 )
 
-    )
+
