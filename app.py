@@ -179,21 +179,21 @@ with st.form("prediction_form"):
     c1, c2, c3 = st.columns(3)
 
     with c1:
-        attendance = st.slider("Attendance (%)", 0, 100, 75)
-        study_hours = st.slider("Study Hours/Week", 0, 60, 15)
-        stress = st.slider("Stress Level (1-10)", 1, 10, 5)
-        sleep = st.slider("Sleep Hours/Night", 0, 12, 7)
-        midterm = st.number_input("Midterm Score", min_value=0, max_value=100, value=50)
+        attendance = st.slider("Attendance (%)", 0, 100, 0)
+        study_hours = st.slider("Study Hours/Week", 0, 60, 0)
+        stress = st.slider("Stress Level (1-10)", 1, 10, 0)
+        sleep = st.slider("Sleep Hours/Night", 0, 12, 0)
+        midterm = st.number_input("Midterm Score", min_value=0, max_value=100, value=0)
 
     with c2:
-        final = st.number_input("Final Score", min_value=0, max_value=100, value=60)
-        assignments = st.number_input("Assignments Avg", min_value=0, max_value=100, value=70)
-        projects = st.number_input("Projects Score", min_value=0, max_value=100, value=65)
-        quizzes = st.number_input("Quizzes Avg", min_value=0, max_value=100, value=55)
+        final = st.number_input("Final Score", min_value=0, max_value=100, value=0)
+        assignments = st.number_input("Assignments Avg", min_value=0, max_value=100, value=0)
+        projects = st.number_input("Projects Score", min_value=0, max_value=100, value=0)
+        quizzes = st.number_input("Quizzes Avg", min_value=0, max_value=100, value=0)
         gender = st.selectbox("Gender", encoders['Gender'].classes_)
 
     with c3:
-        age = st.number_input("Age", min_value=10, max_value=30, value=18)
+        age = st.number_input("Age", min_value=10, max_value=30, value=0)
         dept = st.selectbox("Department", encoders['Department'].classes_)
         activities = st.selectbox("Extracurricular Activities", encoders['Extracurricular_Activities'].classes_)
         internet = st.selectbox("Internet Access at Home", encoders['Internet_Access_at_Home'].classes_)
