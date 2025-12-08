@@ -5,7 +5,7 @@ import base64
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
-name = st.text_input("Enter Your Name")
+
 
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
