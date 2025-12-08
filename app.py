@@ -193,7 +193,7 @@ with st.form("prediction_form"):
         gender = st.selectbox("Gender", encoders['Gender'].classes_)
 
     with c3:
-        age = st.number_input("Age", min_value=10, max_value=30, value=0)
+        age = st.number_input("Age", min_value=10, max_value=30, value=10)
         dept = st.selectbox("Department", encoders['Department'].classes_)
         activities = st.selectbox("Extracurricular Activities", encoders['Extracurricular_Activities'].classes_)
         internet = st.selectbox("Internet Access at Home", encoders['Internet_Access_at_Home'].classes_)
