@@ -207,7 +207,8 @@ with st.form("prediction_form"):
     with col_text:
         result_placeholder = st.empty()
 if submitted:
-    input_data = {
+    # Build DataFrame exactly like training format
+    input_df = pd.DataFrame([{
         'Gender': encoders['Gender'].transform([gender])[0],
         'Age': age,
         'Department': encoders['Department'].transform([dept])[0],
@@ -224,9 +225,27 @@ if submitted:
         'Family_Income_Level': encoders['Family_Income_Level'].transform([income])[0],
         'Stress_Level (1-10)': stress,
         'Sleep_Hours_per_Night': sleep
-    }
-    input_df = pd.DataFrame([input_data])
-    pred = model.predict(input_df)[0]
+    }])
+
+    predicted_score = model.predict(input_df)[0]
+
+    # Grade
+    if predicted_score >= 90:
+        grade = "A"
+    elif predicted_score >= 75:
+        grade = "B"
+    elif predicted_score >= 60:
+        grade = "C"
+    elif predicted_score >= 40:
+        grade = "D"
+    else:
+        grade = "E"
+
+    st.success(
+        f"Hey {name}, your predicted score is {predicted_score:.2f} "
+        f"and this gives a grade of {grade}."
+    )
+
 
     grade = ""
 
