@@ -231,16 +231,20 @@ if submitted:
     grade = ""
 
 
-if pred >= 90:
+predicted_score = float(model.predict(input_data)[0])
+
+# Grade logic
+if predicted_score >= 90:
     grade = "A"
-elif pred >= 80:
+elif predicted_score >= 75:
     grade = "B"
-elif pred >= 70:
+elif predicted_score >= 60:
     grade = "C"
-elif pred >= 60:
+elif predicted_score >= 40:
     grade = "D"
 else:
     grade = "E"
+
 
 
 result_placeholder.markdown(
