@@ -230,25 +230,18 @@ if submitted:
 
     grade = ""
 
+predicted_score = float(model.predict(input_data)[0])
 
-# Grade logic
-if pred >= 90:
+# Grade
+if predicted_score >= 90:
     grade = "A"
-elif pred >= 75:
+elif predicted_score >= 75:
     grade = "B"
-elif pred >= 60:
+elif predicted_score >= 60:
     grade = "C"
-elif pred >= 40:
+elif predicted_score >= 40:
     grade = "D"
 else:
     grade = "E"
 
-
-
-result_placeholder.markdown(
-    f"<p class='prediction-text'>Hey <b>{name if name else 'there'}</b>, "
-    f"your predicted score is <b>{pred:.2f}</b> and this gives a grade of <b>{grade}</b>.</p>",
-    unsafe_allow_html=True
-)
-
-
+st.success(f"Hey {name}, your predicted score is {predicted_score:.2f} and this gives a grade of {grade}.")
