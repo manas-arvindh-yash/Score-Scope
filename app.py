@@ -247,20 +247,3 @@ if submitted:
     )
 
 
-    grade = ""
-
-predicted_score = float(model.predict(input_data)[0])
-
-# Grade
-if predicted_score >= 90:
-    grade = "A"
-elif predicted_score >= 75:
-    grade = "B"
-elif predicted_score >= 60:
-    grade = "C"
-elif predicted_score >= 40:
-    grade = "D"
-else:
-    grade = "E"
-
-st.success(f"Hey {name}, your predicted score is {predicted_score:.2f} and this gives a grade of {grade}.")
