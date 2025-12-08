@@ -5,6 +5,7 @@ import base64
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
+name = st.text_input("Enter Your Name")
 
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
@@ -227,7 +228,25 @@ if submitted:
     input_df = pd.DataFrame([input_data])
     pred = model.predict(input_df)[0]
 
-    result_placeholder.markdown(
-        f"<p class='prediction-text'>YOUR PREDICTED SCORE IS: {pred:.2f}</p>",
-        unsafe_allow_html=True
+    grade = ""
+
+
+if pred >= 90:
+    grade = "A"
+elif pred >= 80:
+    grade = "B"
+elif pred >= 70:
+    grade = "C"
+elif pred >= 60:
+    grade = "D"
+else:
+    grade = "E"
+
+
+result_placeholder.markdown(
+    f"<p class='prediction-text'>Hey <b>{name if name else 'there'}</b>, "
+    f"your predicted score is <b>{pred:.2f}</b> and this gives a grade of <b>{grade}</b>.</p>",
+    unsafe_allow_html=True
+)
+
     )
