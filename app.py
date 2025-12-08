@@ -84,6 +84,9 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+st.markdown("### 👤 Enter Student Name")
+name = st.text_input("Student Name", placeholder="Enter the student's name here...")
+st.markdown("---")
 
 def set_background(image_path):
     with open(image_path, "rb") as f:
