@@ -85,8 +85,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 st.markdown(" Enter Student Name")
-name = st.text_input("Student Name", placeholder="Enter the student's name here...")
-st.markdown("---")
+name = st.text_input("Student Name", placeholder="Enter your name")
+
+# Show personalized text AFTER user enters name
+if name.strip() != "":
+    st.markdown(
+        f"<h4 style='color:#00e6e6;'>Hi, <b>{name}</b>! Please fill the form below to generate your personalised score 🔍</h4>",
+        unsafe_allow_html=True
+    )
+    st.markdown("---")   # separator line
+
 
 def set_background(image_path):
     with open(image_path, "rb") as f:
