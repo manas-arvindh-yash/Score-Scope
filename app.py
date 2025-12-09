@@ -87,6 +87,7 @@ st.markdown("""
 st.markdown(" Enter Student Name")
 name = st.text_input("Student Name", placeholder="Enter the student's name here...")
 st.markdown("---")
+print('Hi',name,'Please fill the form below to get your personalised score.')
 
 def set_background(image_path):
     with open(image_path, "rb") as f:
