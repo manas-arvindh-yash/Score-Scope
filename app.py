@@ -6,7 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 
-name = st.text_input("Enter Your Name")
+st.markdown("                            
+
+                                 ")
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
@@ -84,6 +86,8 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+st.markdown(" Enter Student Name")
+name = st.text_input("Student Name", placeholder="Enter your name")
 
 if name.strip() != "":
     st.markdown(
