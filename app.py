@@ -192,7 +192,7 @@ with st.form("prediction_form"):
 
     with c1:
         attendance = st.slider("Attendance (%)", 0, 100, 0)
-        study_hours = st.slider("Study Hours/Week", 0, 60, 0)
+        study_hours = st.slider("Study Hours/Week", 0, 90, 0)
         stress = st.slider("Stress Level (1-10)", 1, 10, 0)
         sleep = st.slider("Sleep Hours/Night", 0, 12, 0)
         midterm = st.number_input("Midterm Score", min_value=0, max_value=100, value=0)
