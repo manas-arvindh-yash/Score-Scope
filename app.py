@@ -21,7 +21,7 @@ st.markdown("""
         border: 1.5px solid #555 !important;    /* dark grey outline */
         border-radius: 8px !important;
         font-weight: 500 !important;
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
 
     /* ===== DROPDOWN MENU OPTIONS ===== */
