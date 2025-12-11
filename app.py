@@ -5,17 +5,6 @@ import base64
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
-
-st.markdown("""                           
-
-
-
-
-
-
-
-                                  
-                                                        """)
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
@@ -193,7 +182,7 @@ st.markdown(
     """
     <div style='display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 5px;'>
         <img src='data:image/png;base64,{}' width='40' style='border-radius: 10px;'/>
-        <h1 style='color: white; margin: 0; font-size: 1.9rem;'>ScoreScope</h1>
+        <h1 style='color: white; margin: 0; font-size: 2.2rem;'>ScoreScope</h1>
     </div>
     """.format(base64.b64encode(open("sslogo.png", "rb").read()).decode()),
     unsafe_allow_html=True
