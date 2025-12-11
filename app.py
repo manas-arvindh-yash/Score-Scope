@@ -10,7 +10,8 @@ st.markdown("""
 
 
 
-                                 """)
+                                  
+                                                        """)
 st.set_page_config(page_title="ScoreScope", layout="wide")
 st.markdown("""
     <style>
