@@ -89,7 +89,8 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-st.markdown(" Enter Student Name")
+st.markdown("
+              Enter Student Name")
 name = st.text_input("Student Name", placeholder="Enter your name")
 
 if name.strip() != "":
