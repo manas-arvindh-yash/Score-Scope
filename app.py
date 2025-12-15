@@ -157,7 +157,7 @@ required_columns = [
     'Extracurricular_Activities','Quizzes_Avg',
     'Internet_Access_at_Home','Parent_Education_Level',
     'Family_Income_Level','Stress_Level (1-10)',
-    'Sleep_Hours_per_Night','Total_Score'
+    'Sleep_Hours_per_Night','Participation_Score','Total_Score'
 ]
 if not all(col in df.columns for col in required_columns):
     st.error("Dataset missing required columns; check cstperformance01.csv")
@@ -203,7 +203,9 @@ with st.form("prediction_form"):
         assignments = st.number_input("Assignments Avg", min_value=0, max_value=100, value=0)
         projects = st.number_input("Projects Score", min_value=0, max_value=100, value=0)
         quizzes = st.number_input("Quizzes Avg", min_value=0, max_value=100, value=0)
+        participation = st.number_input("Participation Score", min_value=0, max_value=100, value=0)
         gender = st.selectbox("Gender", encoders['Gender'].classes_)
+        
 
     with c3:
         age = st.number_input("Age", min_value=10, max_value=30, value=10)
@@ -237,6 +239,7 @@ if submitted:
         'Family_Income_Level': encoders['Family_Income_Level'].transform([income])[0],
         'Stress_Level (1-10)': stress,
         'Sleep_Hours_per_Night': sleep
+        'Participation Score': participation, 
     }])
 
     predicted_score = model.predict(input_df)[0]
