@@ -238,8 +238,8 @@ if submitted:
         'Parent_Education_Level': encoders['Parent_Education_Level'].transform([parent_edu])[0],
         'Family_Income_Level': encoders['Family_Income_Level'].transform([income])[0],
         'Stress_Level (1-10)': stress,
-        'Sleep_Hours_per_Night': sleep
-        'Participation Score': participation, 
+        'Sleep_Hours_per_Night': sleep,
+        'Participation_Score': participation, 
     }])
 
     predicted_score = model.predict(input_df)[0]
