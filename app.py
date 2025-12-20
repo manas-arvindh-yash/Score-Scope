@@ -108,17 +108,22 @@ st.markdown("""
     }
 
     /* ===== BUTTON ===== */
-    div.stButton > button {
-        background-color: #000000 !important;
-        color: #FFFFFF !important;
-        border: 1.5px solid #444 !important;
-        border-radius: 12px !important;
-        padding: 10px 25px !important;
-        font-size: 16px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-    }
+   div.stButton > button {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #555 !important;
+    border-radius: 16px !important;
+
+    padding: 18px 45px !important;   
+    font-size: 20px !important;     
+    font-weight: 700 !important;
+
+    min-width: 220px !important;     
+    height: 60px !important;
+
+    transition: all 0.3s ease;
+}
+
 
     div.stButton > button:hover {
         background-color: #1a1a1a !important;
