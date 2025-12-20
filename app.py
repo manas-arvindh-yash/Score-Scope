@@ -7,6 +7,17 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 st.cache_data.clear()
 st.set_page_config(page_title="ScoreScope", layout="wide")
+set_background("Background.png")
+st.markdown(
+    """
+    <div style='display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 5px;'>
+        <img src='data:image/png;base64,{}' width='40' style='border-radius: 10px;'/>
+        <h1 style='color: white; margin: 0; font-size: 2.2rem;'>ScoreScope</h1>
+    </div>
+    """.format(base64.b64encode(open("sslogo.png", "rb").read()).decode()),
+    unsafe_allow_html=True
+)
+
 st.markdown("""
     <style>
     /* ===== GLOBAL FONT & BACKGROUND ===== */
@@ -142,7 +153,7 @@ def set_background(image_path):
         """,
         unsafe_allow_html=True
     )
-set_background("Background.png")
+
 
 @st.cache_data
 def load_data():
@@ -179,15 +190,7 @@ y = df['Total_Score']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = LinearRegression()
 model.fit(X_train, y_train)
-st.markdown(
-    """
-    <div style='display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 5px;'>
-        <img src='data:image/png;base64,{}' width='40' style='border-radius: 10px;'/>
-        <h1 style='color: white; margin: 0; font-size: 2.2rem;'>ScoreScope</h1>
-    </div>
-    """.format(base64.b64encode(open("sslogo.png", "rb").read()).decode()),
-    unsafe_allow_html=True
-)
+
 with st.form("prediction_form"):
     c1, c2, c3 = st.columns(3)
 
